@@ -1,0 +1,25 @@
+# This is a basic workflow to help you get started with Actions
+
+name: workout reminder
+
+on:
+  schedule:
+    # Runs "At 15:29 on every day-of-week from Monday through Friday." (see https://crontab.guru)
+    - cron: '29 15 * * 1-5'
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: cURL request
+        run: |
+          curl --request POST \
+          --url https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${{ secrets.BOT_TOKEN }} \
+          --header 'content-type: application/json' \
+          --data '{
+              "msgtype": "text",
+              "text": {
+                 "content": "⏰运动时间到了～， 各位准备活动一下吧"
+              }
+            }' \
+          --fail
