@@ -12,6 +12,8 @@ jobs:
   webhook-call:
     runs-on: ubuntu-latest
     steps:
+      - name: show date
+        run: date
       - name: cURL request
         run: |
           curl --request POST \
