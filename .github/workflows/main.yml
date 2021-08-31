@@ -5,7 +5,7 @@ name: workout reminder
 on:
   schedule:
     # Runs "At 15:29 on every day-of-week from Monday through Friday." (see https://crontab.guru)
-    - cron: '29 15 * * 1-5'
+    - cron: '20 13 * * 1-5'
 
 jobs:
   post:
