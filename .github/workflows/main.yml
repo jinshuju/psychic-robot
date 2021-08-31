@@ -5,7 +5,7 @@ name: workout reminder
 on:
   schedule:
     # Runs "At 15:29 on every day-of-week from Monday through Friday." (see https://crontab.guru)
-    - cron: '20 13 * * 1-5'
+    - cron: '28 13 * * *'
 
 jobs:
   post:
@@ -21,5 +21,4 @@ jobs:
               "text": {
                  "content": "⏰运动时间到了～， 各位准备活动一下吧"
               }
-            }' \
-          --fail
+            }'
