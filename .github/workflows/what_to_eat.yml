@@ -1,0 +1,27 @@
+name: what to eat
+
+on:
+  schedule:
+    - cron:  '45 3 * * 1-5'
+  workflow_dispatch: 
+
+jobs:
+  webhook-call:
+    runs-on: ubuntu-latest
+    steps:
+      - name: show date
+        run: date
+      - name: cURL request
+        run: |
+          opts=("食堂" "牛肉面" "泡馍" "臊子面" "菠菜面" "沙县" "711" "魏家" "KFC" "汉堡王" "卷凉皮" "胡辣汤")
+          food=${opts[($RANDOM % ${#opts[@]}) + 1]}
+          curl --request POST \
+          --url "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=808a4ba2-7c2e-4ed2-91c7-5595f5cf0ff5" \
+          --header "content-type: application/json" \
+          --data "{
+              \"msgtype\": \"text\",
+              \"text\": {
+                 \"content\": \"🍚 今天吃: ${food}\"
+              }
+            }"
+
