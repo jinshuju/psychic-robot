@@ -13,7 +13,7 @@ jobs:
         run: date
       - name: cURL request
         run: |
-          opts=("食堂" "牛肉面" "泡馍" "臊子面" "菠菜面" "沙县" "711" "魏家" "KFC" "汉堡王" "卷凉皮")
+          opts=("食堂" "牛肉面" "泡馍" "臊子面" "菠菜面" "711" "魏家" "KFC" "汉堡王" "卷凉皮")
           food=${opts[$RANDOM % ${#opts[@]} ]}
           curl --request POST \
           --url https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${{ secrets.ENT_BOT_TOKEN }} \
