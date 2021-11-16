@@ -15,13 +15,14 @@ jobs:
         run: |
           opts=("食堂" "牛肉面" "泡馍" "臊子面" "菠菜面" "711" "魏家" "KFC" "汉堡王" "卷凉皮")
           food=${opts[$RANDOM % ${#opts[@]} ]}
+          weather=$(curl -H "Accept-Language: zh-cn" wttr.in/Xi\'an\?0ATF)
           curl --request POST \
           --url https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${{ secrets.ENT_BOT_TOKEN }} \
           --header "content-type: application/json" \
           --data "{
               \"msgtype\": \"text\",
               \"text\": {
-                 \"content\": \"🍚 今天吃: ${food}\"
+                 \"content\": \"${weather}\n\n 🍚 今天吃: ${food}\"
               }
             }"
 
