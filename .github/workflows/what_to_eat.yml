@@ -1,9 +1,9 @@
 name: what to eat
 
 on:
-  schedule:
-    - cron:  '45 3 * * 1-5'
   workflow_dispatch: 
+#   schedule:
+#     - cron:  '45 3 * * 1-5'
 
 jobs:
   webhook-call:
