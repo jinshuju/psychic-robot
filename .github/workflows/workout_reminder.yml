@@ -1,9 +1,9 @@
 name: workout reminder
 
 on:
-  schedule:
+  # schedule:
     # Runs "At 15:29 on every day-of-week from Monday through Friday." (see https://crontab.guru)
-    - cron:  '20 7 * * 1-5'
+   # - cron:  '20 7 * * 1-5'
   workflow_dispatch: # Run workflow manually (without waiting for the cron to be called), through the Github Actions Workflow page directly
 
 jobs:
